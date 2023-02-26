@@ -55,9 +55,9 @@ def get_parameter(client, name, with_decryption=True):
 # username = get_parameter(ssm_client, f'/apps/aurora_postgres_{stage}/username', with_decryption=True)
 # password = get_parameter(ssm_client, f'/apps/aurora_postgres_{stage}/password', with_decryption=True)
 # hostname = get_parameter(ssm_client, f'/apps/aurora_postgres_{stage}/hostname', with_decryption=True)
-username = ''
-password = ''
-hostname = ''
+username = 'postgres'
+password = 'Rit7rnYZ9zBCJ6hj'
+hostname = 'consortium-aurora-dev.cluster-cvwrkhjbrnmf.us-west-2.rds.amazonaws.com'
 print(username)
 print(password)
 print(hostname)
