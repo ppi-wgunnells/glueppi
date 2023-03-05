@@ -174,6 +174,7 @@ def create_job(glue_script_path, filename, role, job_name,
                extra=None,
                lib_path=None,
                num_work=10,
+               work_type='G.2X',
                def_args=None):
     """
     --extra-py-files: s3path inside DefaultArguments
@@ -190,6 +191,8 @@ def create_job(glue_script_path, filename, role, job_name,
     :param tags: dict() of tags key val pair
     :param extra: dict() of extra strings
     :param lib_path: str() of binary object
+    :param num_work: int() of worker nodes
+    :param work_type: str() of worker type default 'G.2X'
     :return: None
     """
     s3_client = session.resource('s3')  # put some data
@@ -210,7 +213,7 @@ def create_job(glue_script_path, filename, role, job_name,
     # NumberOfWorkers should not exceed 10, 3 might be sweet spot
     job = {
            'NumberOfWorkers': num_work,
-           'WorkerType': 'G.2X',
+           'WorkerType': work_type,
            'Command': {
                'Name': 'glueetl',
                'ScriptLocation': f's3://{bucket}/{prefix}{filename}',
