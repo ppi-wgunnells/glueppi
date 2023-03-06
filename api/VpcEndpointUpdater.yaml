@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: S3 VPC Endpoint Updater
+#Transform: AppleTaggingStandard
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: Name of S3 bucket
+
+Resources:
+  UpdateS3VPCEndpoint:
+    Type: Custom::VpcEndpointUpdater
+    Properties:
+#      ServiceToken: !ImportValue VpcEndpointUpdaterARN
+#      VpcEndpointId: !ImportValue ais-provided-vpc-VPCS3Endpoint
+      VpcEndpointId: vpce-0fb96c66
+      Principal: "*"
+      Action: "s3:*"
+      Effect: "Allow"
+      Resource:
+        - !Sub "arn:aws:s3:::${BucketName}"
+        - !Sub "arn:aws:s3:::${BucketName}/*"

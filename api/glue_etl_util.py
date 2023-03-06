@@ -6,6 +6,7 @@ import boto3
 import sys
 import botocore.exceptions
 import botocore.errorfactory
+from botocore.exceptions import ClientError
 import pprint
 import ast
 
