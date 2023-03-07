@@ -42,5 +42,5 @@ if __name__ == "__main__":
     print(list_jobs({'cms': 'cms performance'}))
     # get_job_runs("cms_extract")
     # main(net=True)  # create net first
-    main(job=True)  # create job
-    # main(del_job=True)
+    # main(job=True)  # create job
+    main(del_job=True)
